@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Library</title>
+    <style>
+        /* Basic styling to make the library look clean and organized */
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        nav { margin: 15px 0; text-align: center; }
+        nav a { margin: 0 10px; color: #2c3e50; text-decoration: none; font-weight: bold; }
+        .search-container { text-align: center; margin: 30px 0; }
+        #bookSearch { width: 60%; padding: 10px; font-size: 16px; border: 2px solid #2c3e50; border-radius: 5px; }
+        .book-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .book-card { border: 1px solid #ddd; padding: 15px; width: 200px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .book-card h3 { margin: 10px 0 5px 0; font-size: 18px; }
+        .book-card p { color: #555; font-size: 14px; margin: 0; }
+        footer { margin-top: 40px; text-align: center; font-size: 12px; color: #777; }
+    </style>
+</head>
+<body>
+
+    <!-- Library Header -->
+    <header>
+        <h1>City Central Library</h1>
+        <p>Explore thousands of books right at your fingertips</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a> | 
+        <a href="#catalog">Book Catalog</a> | 
+        <a href="#contact">Contact & Hours</a>
+    </nav>
+
+    <!-- Interactive Search Feature -->
+    <div class="search-container">
+        <h2>Find a Book</h2>
+        <input type="text" id="bookSearch" onkeyup="searchBooks()" placeholder="Search by title, author, or genre...">
+    </div>
+
+    <!-- Book Catalog Section -->
+    <main id="catalog">
+        <div class="book-list" id="bookList">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <h3>The Great Gatsby</h3>
+                <p><strong>Author:</strong> F. Scott Fitzgerald</p>
+                <p><strong>Genre:</strong> Classic Fiction</p>
+            </div>
+            <!-- Book 2 -->
+            <div class="book-card">
+                <h3>To Kill a Mockingbird</h3>
+                <p><strong>Author:</strong> Harper Lee</p>
+                <p><strong>Genre:</strong> Classic Fiction</p>
+            </div>
+            <!-- Book 3 -->
+            <div class="book-card">
+                <h3>Dune</h3>
+                <p><strong>Author:</strong> Frank Herbert</p>
+                <p><strong>Genre:</strong> Sci-Fi / Fantasy</p>
+            </div>
+            <!-- Book 4 -->
+            <div class="book-card">
+                <h3>The Hobbit</h3>
+                <p><strong>Author:</strong> J.R.R. Tolkien</p>
+                <p><strong>Genre:</strong> Sci-Fi / Fantasy</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Library Footer -->
+    <footer>
+        <p>&copy; 2026 City Central Library. Open Mon-Sat: 9 AM - 8 PM.</p>
+    </footer>
+
+    <!-- JavaScript for Live Searching -->
+    <script>
+        function searchBooks() {
+            // Get what the user typed and convert it to lowercase
+            let input = document.getElementById('bookSearch').value.toLowerCase();
+            // Get all the individual book cards
+            let cards = document.getElementsByClassName('book-card');
+
+            // Loop through every book card to check if it matches the search text
+            for (let i = 0; i < cards.length; i++) {
+                let cardText = cards[i].innerText.toLowerCase();
+                
+                if (cardText.includes(input)) {
+                    cards[i].style.display = ""; // Show the book if it matches
+                } else {
+                    cards[i].style.display = "none"; // Hide the book if it doesn't match
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

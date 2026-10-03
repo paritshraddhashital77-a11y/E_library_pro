@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Horizon Resort & Spa</title>
+    <style>
+        /* Reset and Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Navigation Bar */
+        header { background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        .logo { font-size: 24px; font-weight: bold; color: #b89244; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a:hover { color: #b89244; transition: 0.3s; }
+
+        /* Hero Banner */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 10px; font-weight: 300; }
+        .hero p { font-size: 20px; margin-bottom: 20px; }
+
+        /* Booking Form Widget */
+        .booking-widget {
+            background: #fff;
+            padding: 20px;
+            max-width: 1000px;
+            width: 90%;
+            margin: -40px auto 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .booking-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: flex-end; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-size: 12px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; color: #666; }
+        .form-group input, .form-group select { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        .book-btn { background: #b89244; color: white; border: none; padding: 12px; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .book-btn:hover { background: #967533; }
+
+        /* Rooms Section */
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; color: #222; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: #b89244; margin: 10px auto 0 auto; }
+        
+        .room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .room-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .room-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .room-img { height: 220px; width: 100%; object-fit: cover; }
+        .room-info { padding: 20px; }
+        .room-title { font-size: 20px; margin-bottom: 10px; }
+        .room-price { color: #b89244; font-weight: bold; font-size: 18px; margin-bottom: 15px; }
+        .room-features { list-style: none; font-size: 14px; color: #666; margin-bottom: 20px; display: flex; gap: 10px; }
+        .view-btn { display: inline-block; border: 1px solid #b89244; color: #b89244; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: bold; transition: 0.3s; }
+        .view-btn:hover { background: #b89244; color: #fff; }
+
+        /* Footer */
+        footer { background: #222; color: #aaa; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">GRAND HORIZON</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Rooms</a></li>
+                <li><a href="#">Amenities</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero">
+        <h1>Experience Luxury Like Never Before</h1>
+        <p>Your perfect staycation is just a few clicks away.</p>
+    </section>
+
+    <!-- Live Booking Widget Container -->
+    <div class="booking-widget">
+        <form class="booking-form" action="#" method="GET">
+            <div class="form-group">
+                <label for="checkin">Check-In</label>
+                <input type="date" id="checkin" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout">Check-Out</label>
+                <input type="date" id="checkout" required>
+            </div>
+            <div class="form-group">
+                <label for="guests">Guests</label>
+                <select id="guests">
+                    <option value="1">1 Adult</option>
+                    <option value="2" selected>2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                </select>
+            </div>
+            <button type="submit" class="book-btn">Check Availability</button>
+        </form>
+    </div>
+
+    <!-- Main Section: Featured Rooms -->
+    <main class="main-content">
+        <h2 class="section-title">Our Featured Rooms</h2>
+        
+        <div class="room-grid">
+            <!-- Room 1 -->
+            <div class="room-card">
+                <img class="room-img" src="https://unsplash.com" alt="Deluxe Room">
+                <div class="room-info">
+                    <h3 class="room-title">Deluxe Ocean Room</h3>
+                    <div class="room-price">₹8,500 / night</div>
+                    <ul class="room-features">
+                        <li>1 King Bed</li>
+                        <li>• Free Wi-Fi</li>
+                        <li>• Sea View</li>
+                    </ul>
+                    <a href="#" class="view-btn">View Details</a>
+                </div>
+            </div>
+
+            <!-- Room 2 -->
+            <div class="room-card">
+                <img class="room-img" src="https://unsplash.com" alt="Executive Suite">
+                <div class="room-info">
+                    <h3 class="room-title">Executive Luxury Suite</h3>
+                    <div class="room-price">₹14,000 / night</div>
+                    <ul class="room-features">
+                        <li>1 King Bed</li>
+                        <li>• Living Room</li>
+                        <li>• Minibar</li>
+                    </ul>
+                    <a href="#" class="view-btn">View Details</a>
+                </div>
+            </div>
+
+            <!-- Room 3 -->
+            <div class="room-card">
+                <img class="room-img" src="https://unsplash.com" alt="Cozy Twin Room">
+                <div class="room-info">
+                    <h3 class="room-title">Superior Twin Room</h3>
+                    <div class="room-price">₹6,000 / night</div>
+                    <ul class="room-features">
+                        <li>2 Twin Beds</li>
+                        <li>• Free Wi-Fi</li>
+                        <li>• City View</li>
+                    </ul>
+                    <a href="#" class="view-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Grand Horizon Resort & Spa. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
